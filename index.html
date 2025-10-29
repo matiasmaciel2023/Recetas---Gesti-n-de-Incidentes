@@ -7,18 +7,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary-color: #2F5597;
-      --primary-light: #5b7bb4;
-      --secondary-color: #eef3fb;
-      --accent-color: #fff3cd;
-      --accent-border: #ffc107;
-      --border-color: #d1d1d1;
-      --text-color: #333;
-      --light-text: #666;
-      --success-color: #28a745;
-      --warning-color: #ffc107;
-      --danger-color: #dc3545;
-    }
+  --primary-color: #2F5597;
+  --primary-light: #5b7bb4;
+  --secondary-color: #eef3fb;
+  --accent-color: #fff3cd;
+  --accent-border: #ffc107;
+  --border-color: #d1d1d1;
+  --text-color: #333;
+  --light-text: #666;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --orange-color: #ff8c00; /* AGREGAR ESTA LÍNEA */
+}
     
     * {
       box-sizing: border-box;
@@ -232,136 +233,360 @@
     }
     
     .btn-example {
-      display: inline-flex;
-      align-items: center;
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
-      padding: 6px 12px;
-      margin: 0 5px;
-      border-radius: 4px;
-      font-weight: bold;
-      font-family: inherit;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    }
-    
-    .btn-example i {
-      margin-right: 5px;
-    }
-    
-    .status-ok {
-      color: var(--success-color);
-      font-weight: bold;
-    }
-    
-    .status-error {
-      color: var(--danger-color);
-      font-weight: bold;
-    }
-    
-    .status-warning {
-      color: var(--warning-color);
-      font-weight: bold;
-    }
-    
-    .contact-card {
-      background: white;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 15px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      border-left: 4px solid var(--primary-color);
-    }
-    
-    .contact-card h4 {
-      margin-top: 0;
-      color: var(--primary-color);
-    }
-    
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    
-    .coverage-examples {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 10px;
-    }
-    
-    .coverage-badge {
-      background-color: var(--secondary-color);
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-size: 0.9em;
-      border: 1px solid var(--border-color);
-    }
-    
-    /* Índice interactivo mejorado */
-    .indice-interactivo {
-      background: white;
-      padding: 15px 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-      position: sticky;
-      top: 10px;
-      z-index: 100;
-      transition: all 0.3s ease;
-    }
-    
-    .indice-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      padding: 5px 0;
-    }
-    
-    .indice-header h2 {
-      margin: 0;
-      border-bottom: none;
-      padding-bottom: 0;
-      color: var(--primary-color);
-    }
-    
-    .indice-toggle {
-      font-size: 1.2em;
-      color: var(--primary-color);
-      transition: transform 0.3s ease;
-    }
-    
-    .indice-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      margin-top: 15px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, margin-top 0.3s ease;
-    }
-    
-    .indice-grid.expanded {
-      max-height: 500px;
-      margin-top: 15px;
-    }
-    
-    .indice-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 10px 5px;
-      border-radius: 6px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      font-size: 0.85em;
-      transition: transform 0.2s, box-shadow 0.2s;
-      min-height: 60px;
-      justify-content: center;
-    }
+  display: inline-flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  margin: 0 5px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-family: inherit;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.btn-example i {
+  margin-right: 5px;
+}
+
+.status-ok {
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+.status-error {
+  color: var(--danger-color);
+  font-weight: bold;
+}
+
+.status-warning {
+  color: var(--warning-color);
+  font-weight: bold;
+}
+
+.contact-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border-left: 4px solid var(--primary-color);
+}
+
+.contact-card h4 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.coverage-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.coverage-badge {
+  background-color: var(--secondary-color);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  border: 1px solid var(--border-color);
+}
+
+/* Flujo Interactivo Mejorado */
+.flujo-interactivo {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.flujo-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.flujo-opciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.flujo-opcion {
+  background: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+}
+
+.flujo-opcion:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.flujo-opcion i {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.flujo-paso {
+  display: none;
+}
+
+.flujo-paso.activo {
+  display: block;
+}
+
+.flujo-pregunta {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.flujo-subopciones {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.flujo-subopcion {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.flujo-subopcion:hover {
+  border-color: var(--orange-color);
+  background: var(--orange-color);
+}
+
+.flujo-subopcion:hover i,
+.flujo-subopcion:hover strong,
+.flujo-subopcion:hover p {
+  color: white;
+}
+
+.flujo-subopcion i {
+  font-size: 1.5em;
+  margin-right: 15px;
+  color: var(--primary-color);
+}
+
+.flujo-subopcion strong,
+.flujo-subopcion p {
+  color: var(--text-color);
+}
+
+.flujo-accion {
+  background: var(--accent-color);
+  border-left: 5px solid var(--accent-border);
+  border-radius: 6px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.flujo-comunicacion {
+  background: #e8f4fd;
+  border-left: 5px solid #17a2b8;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.flujo-botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.btn-flujo {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 25px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-flujo:hover {
+  background: var(--orange-color);
+}
+
+.btn-flujo-secundario {
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 25px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-flujo-secundario:hover {
+  background: #5a6268;
+}
+
+.flujo-progreso {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.flujo-progreso::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--border-color);
+  z-index: 1;
+}
+
+.flujo-punto {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.flujo-punto.activo {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+}
+
+.flujo-punto.completado {
+  border-color: var(--success-color);
+  background: var(--success-color);
+  color: white;
+}
+
+/* Corregir color del texto en el contenido de documentación */
+.flujo-opcion-contenido,
+.flujo-subopcion-contenido {
+  color: var(--text-color);
+}
+
+.flujo-opcion-contenido p,
+.flujo-subopcion-contenido p {
+  color: var(--text-color);
+}
+
+.flujo-opcion:hover .flujo-opcion-contenido,
+.flujo-opcion:hover .flujo-subopcion-contenido,
+.flujo-opcion:hover .flujo-opcion-contenido p,
+.flujo-opcion:hover .flujo-subopcion-contenido p {
+  color: var(--text-color);
+}
+
+.flujo-checklist {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Índice interactivo mejorado */
+.indice-interactivo {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.indice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+.indice-header h2 {
+  margin: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+  color: var(--primary-color);
+}
+
+.indice-toggle {
+  font-size: 1.2em;
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.indice-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, margin-top 0.3s ease;
+}
+
+.indice-grid.expanded {
+  max-height: 500px;
+  margin-top: 15px;
+}
+
+.indice-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 0.95em;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 60px;
+  justify-content: center;
+}
     
     .indice-item:hover {
       transform: translateY(-2px);
@@ -371,13 +596,13 @@
     }
     
     .indice-numero {
-      font-size: 1.3em;
+      font-size: 1.5em;
       font-weight: bold;
       margin-bottom: 5px;
     }
     
     .indice-texto {
-      font-size: 0.8em;
+      font-size: 0.95em;
       line-height: 1.2;
     }
     
@@ -398,6 +623,25 @@
     .indice-14 { background: linear-gradient(135deg, #d4a93c, #e6c166); }
     .indice-15 { background: linear-gradient(135deg, #4a8d9c, #6baebd); }
     
+    /* Estilos para acordeones en el paso 0 */
+    .acordeon-contenido {
+      max-height: 1000px;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    
+    .flujo-opcion-contenido {
+      margin-top: 20px;
+    }
+    
+    .flujo-subopcion-contenido {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 10px;
+    }
+    
     @media (max-width: 768px) {
       .grid-2 {
         grid-template-columns: 1fr;
@@ -413,6 +657,19 @@
       
       .indice-grid {
         grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .flujo-opciones {
+        grid-template-columns: 1fr;
+      }
+      
+      .flujo-botones {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .btn-flujo, .btn-flujo-secundario {
+        width: 100%;
       }
     }
     
@@ -453,6 +710,10 @@
       .indice-interactivo {
         display: none;
       }
+      
+      .flujo-interactivo {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -472,395 +733,869 @@
       <p><strong>Estado:</strong> Vigente</p>
     </div>
 
-    <!-- Índice interactivo mejorado -->
-    <div class="indice-interactivo">
-      <div class="indice-header" id="indiceToggle">
-        <h2>Índice de Contenidos</h2>
-        <div class="indice-toggle">
-          <i class="fas fa-chevron-down"></i>
-        </div>
-      </div>
-      <div class="indice-grid" id="indiceGrid">
-        <a href="#proposito" class="indice-item indice-1">
-          <div class="indice-numero">1</div>
-          <div class="indice-texto">Propósito y alcance</div>
-        </a>
-        <a href="#definiciones" class="indice-item indice-2">
-          <div class="indice-numero">2</div>
-          <div class="indice-texto">Definiciones clave</div>
-        </a>
-        <a href="#herramientas" class="indice-item indice-3">
-          <div class="indice-numero">3</div>
-          <div class="indice-texto">Herramientas de trabajo</div>
-        </a>
-        <a href="#roles" class="indice-item indice-4">
-          <div class="indice-numero">4</div>
-          <div class="indice-texto">Roles y responsabilidades</div>
-        </a>
-        <a href="#procedimiento" class="indice-item indice-5">
-          <div class="indice-numero">5</div>
-          <div class="indice-texto">Procedimiento general</div>
-        </a>
-        <a href="#matriz" class="indice-item indice-6">
-          <div class="indice-numero">6</div>
-          <div class="indice-texto">Matriz de resolución de errores</div>
-        </a>
-        <a href="#casos-especiales" class="indice-item indice-7">
-          <div class="indice-numero">7</div>
-          <div class="indice-texto">Casos especiales</div>
-        </a>
-        <a href="#validaciones" class="indice-item indice-8">
-          <div class="indice-numero">8</div>
-          <div class="indice-texto">Validaciones obligatorias</div>
-        </a>
-        <a href="#reglas-carga" class="indice-item indice-9">
-          <div class="indice-numero">9</div>
-          <div class="indice-texto">Reglas de carga</div>
-        </a>
-        <a href="#botones-markey" class="indice-item indice-10">
-          <div class="indice-numero">10</div>
-          <div class="indice-texto">Botones en MARKEY</div>
-        </a>
-        <a href="#registro-sharepoint" class="indice-item indice-11">
-          <div class="indice-numero">11</div>
-          <div class="indice-texto">Registro en SharePoint</div>
-        </a>
-        <a href="#plantillas" class="indice-item indice-12">
-          <div class="indice-numero">12</div>
-          <div class="indice-texto">Plantillas de comunicación</div>
-        </a>
-        <a href="#canales-ayuda" class="indice-item indice-13">
-          <div class="indice-numero">13</div>
-          <div class="indice-texto">Canales de ayuda</div>
-        </a>
-        <a href="#objetivos" class="indice-item indice-14">
-          <div class="indice-numero">14</div>
-          <div class="indice-texto">Objetivos</div>
-        </a>
-        <a href="#checklist" class="indice-item indice-15">
-          <div class="indice-numero">15</div>
-          <div class="indice-texto">Checklist rápido</div>
-        </a>
-      </div>
-    </div>
-
-    <div class="section" id="proposito">
-      <h2>1. Propósito y alcance</h2>
-      <p>Estandarizar la gestión de errores en recetas electrónicas (REC) para garantizar la continuidad del tratamiento, minimizar reincidencias y mejorar la calidad de datos. Aplica a todo el personal administrativo, admisiones, call center y soporte de Clínica San Camilo.</p>
-      <div class="note">
-        <strong>ACLARACIÓN IMPORTANTE:</strong> Si el paciente se queda sin medicación o necesita renovación mensual o completar algún tipo de formulario debe concurrir en forma presencial a la clínica. Cuando llega un reclamo de este tipo, debemos contestar el email explicando esto mismo al paciente.
-      </div>
-    </div>
-
-    <div class="section" id="definiciones">
-      <h2>2. Definiciones clave</h2>
-      <ul>
-        <li><strong>REC:</strong> Receta electrónica emitida desde MARKEY.</li>
-        <li><strong>Estado de transacción:</strong> <span class="status-ok">OK</span> / <span class="status-warning">No informada</span> / <span class="status-error">Credencial Inválida</span> / <span class="status-error">Error</span> (dosis, matrícula, financiador, afiliado, sistema).</li>
-        <li><strong>SharePoint:</strong> Repositorio institucional con Formulario y Reporte de Recetas Electrónicas.</li>
-      </ul>
-    </div>
-
-    <div class="section" id="herramientas">
-      <h2>3. Herramientas de trabajo</h2>
-      <ul>
-        <li><strong>Buzón de Recetas:</strong> Monitoreo permanente durante la jornada laboral.</li>
-        <li><strong>Formulario de Recetas Electrónicas (SharePoint):</strong> Registro obligatorio de TODOS los casos, tanto online como presenciales.</li>
-        <li><strong>Reporte de Relevamiento (SharePoint):</strong> Seguimiento y cierre de gestión.</li>
-        <li><strong>MARKEY → Admisión - Dispensar Receta:</strong> Consulta y acciones (reenviar email, reintentar transacción).</li>
-        <li><strong>Teams → Grupo "Recetas":</strong> Soporte recetas (Informática Médica).</li>
-        <li><strong>Escalación clínica:</strong> Dra. Paz (nueva receta / validación médica).</li>
-      </ul>
-    </div>
-
-    <div class="section" id="roles">
-      <h2>4. Roles y responsabilidades</h2>
-      <table>
-        <tr>
-          <th>Rol</th>
-          <th>Responsabilidades</th>
-          <th>Canal de contacto</th>
-        </tr>
-        <tr>
-          <td>Administración / Admisiones / Call Center</td>
-          <td>Recepción del reclamo, verificación de datos, gestión administrativa, registro en SharePoint, comunicación al paciente.</td>
-          <td>Buzón / Teléfono / Formulario</td>
-        </tr>
-        <tr>
-          <td>Soporte clínico (Dra. Paz)</td>
-          <td>Rehacer receta, validar medicación, duplicar desde receta original si corresponde.</td>
-          <td>Teams / Interno</td>
-        </tr>
-        <tr>
-          <td>Informática Médica</td>
-          <td>Incidentes de plataforma (perfil, matrícula, vademécum, caídas de servicio).</td>
-          <td>Teams / Mesa de ayuda</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="section" id="procedimiento">
-      <h2>5. Procedimiento general</h2>
-      <ol class="steps">
-        <li>Identificar al paciente y validar datos.</li>
-        <li>Buscar la receta en MARKEY → Admisión - Dispensar Receta.</li>
-        <li>Revisar el estado de transacción.</li>
-        <li>Aplicar acción según el estado (ver matriz de resolución).</li>
-        <li>Registrar la gestión en SharePoint (Formulario y Reporte).</li>
-        <li>Enviar confirmación al paciente.</li>
-        <li>Escalar si corresponde.</li>
-      </ol>
-    </div>
-
-    <div class="section" id="matriz">
-      <h2>6. Matriz de resolución de errores</h2>
-      <table>
-        <tr>
-          <th>Estado / Error</th>
-          <th>Causa probable</th>
-          <th>Acción administrativa</th>
-          <th>Acción clínica / Informática Médica</th>
-          <th>Responsable</th>
-        </tr>
-        <tr>
-          <td><span class="status-ok">OK</span></td>
-          <td>Receta válida</td>
-          <td><span class="btn-example"><i class="fas fa-envelope"></i>Reenviar por Email</span></td>
-          <td>—</td>
-          <td>Administración</td>
-        </tr>
-        <tr>
-          <td><span class="status-warning">No informada</span></td>
-          <td>Incidente previo al 08.01.2025</td>
-          <td><span class="btn-example"><i class="fas fa-recycle"></i>Reprocesar</span></td>
-          <td>Dra. Paz (duplicar o rehacer)</td>
-          <td>Adm. → Dra. Paz</td>
-        </tr>
-        <tr>
-          <td><span class="status-error">Credencial Inválida</span></td>
-          <td>Coberturas no adheridas a receta electrónica</td>
-          <td><span class="btn-example"><i class="fas fa-envelope"></i>Reenviar por Email</span> o imprimir</td>
-          <td>—</td>
-          <td>Administración</td>
-        </tr>
-        <tr>
-          <td><span class="status-error">Error dosis/presentación</span></td>
-          <td>Medicamento mal cargado</td>
-          <td>—</td>
-          <td>Profesional / Dra. Paz</td>
-          <td>Profesional / Dra. Paz</td>
-        </tr>
-        <tr>
-          <td><span class="status-error">Error matrícula/especialidad</span></td>
-          <td>Perfil sin configuración</td>
-          <td>—</td>
-          <td>Mesa de ayuda + Profesional</td>
-          <td>Informática Médica + Profesional</td>
-        </tr>
-        <tr>
-          <td><span class="status-error">Error financiador</span></td>
-          <td>Plan incorrecto</td>
-          <td>Corregir y <span class="btn-example"><i class="fas fa-recycle"></i>Reprocesar</span></td>
-          <td>Dra. Paz (si persiste)</td>
-          <td>Adm. / Dra. Paz</td>
-        </tr>
-        <tr>
-          <td><span class="status-error">Error número de afiliado</span></td>
-          <td>Afiliado mal tipeado</td>
-          <td>Corregir y <span class="btn-example"><i class="fas fa-recycle"></i>Reprocesar</span></td>
-          <td>—</td>
-          <td>Administración</td>
-        </tr>
-        <tr>
-          <td><span class="status-error">Error de caracteres</span></td>
-          <td>Formato incorrecto</td>
-          <td>Normalizar y <span class="btn-example"><i class="fas fa-recycle"></i>Reprocesar</span></td>
-          <td>—</td>
-          <td>Administración</td>
-        </tr>
-        <tr>
-          <td><span class="status-error">Error de sistema</span></td>
-          <td>Falla técnica</td>
-          <td>—</td>
-          <td>Dra. Paz + Informática Médica</td>
-          <td>Dra. Paz / Informática Médica</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="section" id="casos-especiales">
-      <h2>7. Casos especiales</h2>
-      
-      <h3>7.1 Coberturas no adheridas</h3>
-      <ul>
-        <li>Puede salir con un solo código o estado "Credencial Inválida".</li>
-        <li><span class="btn-example"><i class="fas fa-envelope"></i>Reenviar por Email</span> o imprimir para entrega en mano.</li>
-        <li>Estas coberturas presentan subrogación por obra social:</li>
-      </ul>
-      
-      <div class="coverage-examples">
-        <div class="coverage-badge">Galeno / OSSOS</div>
-        <div class="coverage-badge">Medife / OSPESA</div>
-        <div class="coverage-badge">Omint / OSIM</div>
+    <!-- Flujo Interactivo Inteligente -->
+    <div class="flujo-interactivo">
+      <div class="flujo-header">
+        <h2>Flujo Interactivo de Resolución de Errores</h2>
+        <p>Selecciona una opción para guiarte paso a paso en la resolución del problema</p>
       </div>
       
-      <h3>7.2 Paciente particular con obra social</h3>
-      <p>Emitir receta como PARTICULAR desde MARKEY. Si el profesional decide usar cobertura, debe hacerlo desde su sistema externo (RCTA).</p>
+      <!-- Paso 0: Selección de modo -->
+      <div class="flujo-paso activo" id="paso-0">
+        <div class="flujo-opciones">
+          <div class="flujo-opcion" id="opcion-resolver-error">
+            <i class="fas fa-search"></i>
+            <h3>Resolver un Error</h3>
+            <p>Guía paso a paso para identificar y solucionar problemas con recetas</p>
+            
+            <div class="acordeon-contenido" id="contenido-resolver-error">
+              <div class="flujo-opcion-contenido">
+                <div class="flujo-subopciones">
+                  <div class="flujo-subopcion" data-paso="1" data-tipo="no-recibio">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                      <strong>El paciente no recibió la receta por email</strong>
+                      <p>La receta no llegó al correo del paciente</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flujo-subopcion" data-paso="1" data-tipo="datos-incorrectos">
+                    <i class="fas fa-user-edit"></i>
+                    <div>
+                      <strong>La receta tiene datos incorrectos del paciente</strong>
+                      <p>Información personal, cobertura o medicación incorrecta</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flujo-subopcion" data-paso="1" data-tipo="error-markey">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                      <strong>Markey muestra un error específico</strong>
+                      <p>El sistema indica un problema al procesar la receta</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flujo-subopcion" data-paso="1" data-tipo="problema-farmacia">
+                    <i class="fas fa-barcode"></i>
+                    <div>
+                      <strong>La farmacia no puede leer los códigos</strong>
+                      <p>Problemas con los códigos de barras o formato</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flujo-opcion" id="opcion-documentacion">
+            <i class="fas fa-book"></i>
+            <h3>Ver Documentación Completa</h3>
+            <p>Acceso al índice con todas las secciones de la guía</p>
+            
+            <div class="acordeon-contenido" id="contenido-documentacion">
+              <div class="flujo-opcion-contenido">
+                <div class="flujo-subopcion-contenido">
+                  <p>Al seleccionar esta opción se mostrará la documentación completa de la guía con todas las secciones detalladas.</p>
+                  <div style="text-align: center; margin-top: 15px;">
+                    <button class="btn-flujo" id="btn-ver-documentacion">Ver Documentación Completa</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- Paso 1: Diagnóstico Específico -->
+      <div class="flujo-paso" id="paso-1">
+        <div class="flujo-progreso">
+          <div class="flujo-punto completado">0</div>
+          <div class="flujo-punto activo">1</div>
+          <div class="flujo-punto">2</div>
+          <div class="flujo-punto">3</div>
+        </div>
+        
+        <div class="flujo-pregunta" id="pregunta-paso-1">Verificando el problema...</div>
+        
+        <div id="contenido-paso-1">
+          <!-- El contenido se carga dinámicamente según la selección -->
+        </div>
+        
+        <div class="flujo-botones">
+          <button class="btn-flujo-secundario" id="btn-volver-paso0">Inicio</button>
+          <button class="btn-flujo-secundario" id="btn-volver-menu">Volver</button>
+        </div>
+      </div>
       
-      <h3>7.3 Cambio de cobertura médica</h3>
-      <p>Requiere admisión y transacción desde módulo médico para impactar en Farmacia.</p>
-    </div>
-
-    <div class="section" id="validaciones">
-      <h2>8. Validaciones obligatorias</h2>
-      <ul>
-        <li>Dos códigos de barras y datos completos.</li>
-        <li>Correo correcto (sin rebotes).</li>
-        <li>Reporte actualizado en SharePoint.</li>
-        <li>Estado OK para envío automático.</li>
-      </ul>
-    </div>
-
-    <div class="section" id="reglas-carga">
-      <h2>9. Reglas específicas de carga</h2>
-      <table class="coverage-table">
-        <tr>
-          <th>Cobertura</th>
-          <th>Reglas de carga</th>
-        </tr>
-        <tr>
-          <td><strong>Caja Notarial</strong></td>
-          <td>En el <strong>número de afiliado</strong>, reemplazar letras por números: E→05, V→22, P→16, M→13</td>
-        </tr>
-        <tr>
-          <td><strong>Poder Judicial</strong></td>
-          <td>Dos dígitos después de la barra (agregar 0 si es necesario)</td>
-        </tr>
-        <tr>
-          <td><strong>APSOT</strong></td>
-          <td>Número largo (11 dígitos)</td>
-        </tr>
-        <tr>
-          <td><strong>TV Salud</strong></td>
-          <td>Largo en afiliado, corto en banda magnética</td>
-        </tr>
-        <tr>
-          <td><strong>Banco Provincia</strong></td>
-          <td>7 dígitos</td>
-        </tr>
-        <tr>
-          <td><strong>Jerárquicos Salud</strong></td>
-          <td>Número corto (ej. 42085-00)</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="section" id="botones-markey">
-      <h2>10. Botones en MARKEY</h2>
-      <table>
-        <tr>
-          <th>Botón</th>
-          <th>Cuándo usar</th>
-          <th>Observaciones</th>
-        </tr>
-        <tr>
-          <td><span class="btn-example"><i class="fas fa-envelope"></i>Email</span></td>
-          <td>Receta en estado OK</td>
-          <td>Verificar entrega al paciente</td>
-        </tr>
-        <tr>
-          <td><span class="btn-example"><i class="fas fa-recycle"></i>Reprocesar</span></td>
-          <td>Errores administrativos (afiliado, plan)</td>
-          <td>Si cambia cobertura, debe rehacerla el profesional</td>
-        </tr>
-        <tr>
-          <td><span class="btn-example"><i class="fas fa-eye"></i>Visualizar/Imprimir</span></td>
-          <td>Mostrador / no adheridas</td>
-          <td>Confirmar códigos de barras</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="section" id="registro-sharepoint">
-      <h2>11. Registro en SharePoint</h2>
-      <ul>
-        <li><strong>Formulario:</strong> Datos del paciente, motivo, estado inicial, acciones.</li>
-        <li><strong>Reporte:</strong> Estado, responsable, fecha/hora, observaciones.</li>
-        <li><strong>Obligatorio:</strong> Registrar TODOS los casos, online o presenciales.</li>
-      </ul>
-      <div class="note">
-        <strong>IMPORTANTE:</strong> Disponemos de un formulario llamado "FORMULARIO DE RECETAS ELECTRONICAS" en el SHARE POINT (CLINICA SAN CAMILO) que impacta en un Reporte ubicado en el mismo sitio. Es de suma importancia completar todos los campos.
-      </div>
-    </div>
-
-    <div class="section" id="plantillas">
-      <h2>12. Plantillas de comunicación</h2>
-      <div class="grid-2">
-        <div class="contact-card">
-          <h4>A. Receta reenviada</h4>
-          <p>Estimado/a {Nombre},</p>
-          <p>Reenviamos su receta electrónica. Verifique el correo y preséntela en farmacia.</p>
-          <p>Saludos cordiales,<br>Clínica San Camilo</p>
+      <!-- Paso 2: Acción Guiada -->
+      <div class="flujo-paso" id="paso-2">
+        <div class="flujo-progreso">
+          <div class="flujo-punto completado">0</div>
+          <div class="flujo-punto completado">1</div>
+          <div class="flujo-punto activo">2</div>
+          <div class="flujo-punto">3</div>
         </div>
-        <div class="contact-card">
-          <h4>B. Rehacer receta</h4>
-          <p>Estimado/a {Nombre},</p>
-          <p>Detectamos un error que requiere emitir una nueva receta. Lo estamos gestionando con el equipo médico. Le avisaremos apenas esté disponible.</p>
-          <p>Gracias por su paciencia,<br>Clínica San Camilo</p>
+        
+        <div class="flujo-pregunta">Acción requerida</div>
+        
+        <div id="contenido-paso-2">
+          <!-- El contenido se carga dinámicamente según la selección -->
+        </div>
+        
+        <div class="flujo-botones">
+          <button class="btn-flujo-secundario" id="btn-inicio-paso2">Inicio</button>
+          <button class="btn-flujo-secundario" id="btn-volver-paso1">Volver</button>
+        </div>
+      </div>
+      
+      <!-- Paso 3: Comunicación y Cierre -->
+      <div class="flujo-paso" id="paso-3">
+        <div class="flujo-progreso">
+          <div class="flujo-punto completado">0</div>
+          <div class="flujo-punto completado">1</div>
+          <div class="flujo-punto completado">2</div>
+          <div class="flujo-punto activo">3</div>
+        </div>
+        
+        <div class="flujo-pregunta">Resolución completada</div>
+        
+        <div id="contenido-paso-3">
+          <!-- El contenido se carga dinámicamente según la selección -->
+        </div>
+        
+        <div class="flujo-botones">
+          <button class="btn-flujo-secundario" id="btn-inicio-paso3">Inicio</button>
+          <button class="btn-flujo-secundario" id="btn-volver-paso2">Volver</button>
+          <button class="btn-flujo" id="btn-reiniciar">Nueva Consulta</button>
         </div>
       </div>
     </div>
 
-    <div class="section" id="canales-ayuda">
-      <h2>13. Canales de ayuda</h2>
-      <div class="grid-2">
-        <div class="contact-card">
-          <h4>Grupo de Teams "Recetas"</h4>
-          <p><strong>Informática Médica</strong></p>
-          <p>Para dudas sobre errores de transacción y problemas con profesionales.</p>
+    <!-- Documentación completa (oculta inicialmente) -->
+    <div id="documentacion-completa" style="display: none;">
+      <div class="indice-interactivo" id="indice-documentacion">
+        <div class="indice-header" id="indiceToggleDoc">
+          <h2>Índice de Contenidos</h2>
+          <div class="indice-toggle">
+            <i class="fas fa-chevron-down"></i>
+          </div>
         </div>
-        <div class="contact-card">
-          <h4>Dra. Paz</h4>
-          <p>Para todo lo relacionado con medicación y rehacer recetas.</p>
+        <div class="indice-grid" id="indiceGridDoc">
+          <a href="#proposito" class="indice-item indice-1">
+            <div class="indice-numero">1</div>
+            <div class="indice-texto">Propósito y alcance</div>
+          </a>
+          <a href="#definiciones" class="indice-item indice-2">
+            <div class="indice-numero">2</div>
+            <div class="indice-texto">Definiciones clave</div>
+          </a>
+          <a href="#herramientas" class="indice-item indice-3">
+            <div class="indice-numero">3</div>
+            <div class="indice-texto">Herramientas de trabajo</div>
+          </a>
+          <a href="#roles" class="indice-item indice-4">
+            <div class="indice-numero">4</div>
+            <div class="indice-texto">Roles y responsabilidades</div>
+          </a>
+          <a href="#procedimiento" class="indice-item indice-5">
+            <div class="indice-numero">5</div>
+            <div class="indice-texto">Procedimiento general</div>
+          </a>
+          <a href="#matriz" class="indice-item indice-6">
+            <div class="indice-numero">6</div>
+            <div class="indice-texto">Matriz de resolución de errores</div>
+          </a>
+          <a href="#casos-especiales" class="indice-item indice-7">
+            <div class="indice-numero">7</div>
+            <div class="indice-texto">Casos especiales</div>
+          </a>
+          <a href="#validaciones" class="indice-item indice-8">
+            <div class="indice-numero">8</div>
+            <div class="indice-texto">Validaciones obligatorias</div>
+          </a>
+          <a href="#reglas-carga" class="indice-item indice-9">
+            <div class="indice-numero">9</div>
+            <div class="indice-texto">Reglas de carga</div>
+          </a>
+          <a href="#botones-markey" class="indice-item indice-10">
+            <div class="indice-numero">10</div>
+            <div class="indice-texto">Botones en MARKEY</div>
+          </a>
+          <a href="#registro-sharepoint" class="indice-item indice-11">
+            <div class="indice-numero">11</div>
+            <div class="indice-texto">Registro en SharePoint</div>
+          </a>
+          <a href="#plantillas" class="indice-item indice-12">
+            <div class="indice-numero">12</div>
+            <div class="indice-texto">Plantillas de comunicación</div>
+          </a>
+          <a href="#canales-ayuda" class="indice-item indice-13">
+            <div class="indice-numero">13</div>
+            <div class="indice-texto">Canales de ayuda</div>
+          </a>
+          <a href="#objetivos" class="indice-item indice-14">
+            <div class="indice-numero">14</div>
+            <div class="indice-texto">Objetivos</div>
+          </a>
+          <a href="#checklist" class="indice-item indice-15">
+            <div class="indice-numero">15</div>
+            <div class="indice-texto">Checklist rápido</div>
+          </a>
         </div>
       </div>
-    </div>
 
-    <div class="section" id="objetivos">
-      <h2>14. Objetivos</h2>
-      <ul>
-        <li>Minimizar errores administrativos, médicos y de sistema.</li>
-        <li>Detectar errores propios del sistema y elevarlos al equipo de Informática Médica (Dr. Pontarolo).</li>
-        <li>Trabajar en la resolución desde la base para prevenir futuras incidencias.</li>
-      </ul>
-    </div>
+      <div class="section" id="proposito">
+        <h2>1. Propósito y alcance</h2>
+        <p>Estandarizar la gestión de errores en recetas electrónicas (REC) para garantizar la continuidad del tratamiento, minimizar reincidencias y mejorar la calidad de datos. Aplica a todo el personal administrativo, admisiones, call center y soporte de Clínica San Camilo.</p>
+        <div class="note">
+          <strong>ACLARACIÓN IMPORTANTE:</strong> Si el paciente se queda sin medicación o necesita renovación mensual o completar algún tipo de formulario debe concurrir en forma presencial a la clínica. Cuando llega un reclamo de este tipo, debemos contestar el email explicando esto mismo al paciente.
+        </div>
+      </div>
 
-    <div class="section" id="checklist">
-      <h2>15. Checklist rápido</h2>
-      <ul class="checklist">
-        <li>Validé identidad, cobertura, plan y nro. afiliado.</li>
-        <li>Verifiqué estado en MARKEY → Admisión - Dispensar Receta.</li>
-        <li>Apliqué acción según matriz de resolución.</li>
-        <li>Reenvié o reprocesé según corresponda.</li>
-        <li>Escalé a Dra. Paz o Informática Médica si era necesario.</li>
-        <li>Registré en SharePoint (Formulario y Reporte).</li>
-        <li>Comuniqué resultado al paciente.</li>
-        <li>Confirmé 2 códigos de barras y datos completos.</li>
-      </ul>
-    </div>
+      <div class="section" id="definiciones">
+        <h2>2. Definiciones clave</h2>
+        <ul>
+          <li><strong>REC:</strong> Receta electrónica emitida desde MARKEY.</li>
+          <li><strong>Estado de transacción:</strong> <span class="status-ok">OK</span> / <span class="status-warning">No informada</span> / <span class="status-error">Credencial Inválida</span> / <span class="status-error">Error</span> (dosis, matrícula, financiador, afiliado, sistema).</li>
+          <li><strong>SharePoint:</strong> Repositorio institucional con Formulario y Reporte de Recetas Electrónicas.</li>
+        </ul>
+      </div>
 
-    <div class="footer">
-      Documento interno – Uso exclusivo del personal de Clínica San Camilo.<br>
-      Última actualización: 28/10/2025 · Versión 1.0
+      <div class="section" id="herramientas">
+        <h2>3. Herramientas de trabajo</h2>
+        <ul>
+          <li><strong>Buzón de Recetas:</strong> Monitoreo permanente durante la jornada laboral.</li>
+          <li><strong>Formulario de Recetas Electrónicas (SharePoint):</strong> Registro obligatorio de TODOS los casos, tanto online como presenciales.</li>
+          <li><strong>Reporte de Relevamiento (SharePoint):</strong> Seguimiento y cierre de gestión.</li>
+          <li><strong>MARKEY → Admisión - Dispensar Receta:</strong> Consulta y acciones (reenviar email, reintentar transacción).</li>
+          <li><strong>Teams → Grupo "Recetas":</strong> Soporte recetas (Informática Médica).</li>
+          <li><strong>Escalación clínica:</strong> Dra. Paz (nueva receta / validación médica).</li>
+        </ul>
+      </div>
+
+      <div class="section" id="roles">
+        <h2>4. Roles y responsabilidades</h2>
+        <table>
+          <tr>
+            <th>Rol</th>
+            <th>Responsabilidades</th>
+            <th>Canal de contacto</th>
+          </tr>
+          <tr>
+            <td>Administración / Admisiones / Call Center</td>
+            <td>Recepción del reclamo, verificación de datos, gestión administrativa, registro en SharePoint, comunicación al paciente.</td>
+            <td>Buzón / Teléfono / Formulario</td>
+          </tr>
+          <tr>
+            <td>Soporte clínico (Dra. Paz)</td>
+            <td>Rehacer receta, validar medicación, duplicar desde receta original si corresponde.</td>
+            <td>Teams / Interno</td>
+          </tr>
+          <tr>
+            <td>Informática Médica</td>
+            <td>Incidentes de plataforma (perfil, matrícula, vademécum, caídas de servicio).</td>
+            <td>Teams / Mesa de ayuda</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section" id="procedimiento">
+        <h2>5. Procedimiento general</h2>
+        <ol class="steps">
+          <li>Identificar al paciente y validar datos.</li>
+          <li>Buscar la receta en MARKEY → Admisión - Dispensar Receta.</li>
+          <li>Revisar el estado de transacción.</li>
+          <li>Aplicar acción según el estado (ver matriz de resolución).</li>
+          <li>Registrar la gestión en SharePoint (Formulario y Reporte).</li>
+          <li>Enviar confirmación al paciente.</li>
+          <li>Escalar si corresponde.</li>
+        </ol>
+      </div>
+
+      <div class="section" id="matriz">
+        <h2>6. Matriz de resolución de errores</h2>
+        <table>
+          <tr>
+            <th>Estado / Error</th>
+            <th>Causa probable</th>
+            <th>Acción administrativa</th>
+            <th>Acción clínica / Informática Médica</th>
+            <th>Responsable</th>
+          </tr>
+          <tr>
+            <td><span class="status-ok">OK</span></td>
+            <td>Receta válida</td>
+            <td><span class="btn-example"><i class="fas fa-envelope"></i>Reenviar por Email</span></td>
+            <td>—</td>
+            <td>Administración</td>
+          </tr>
+          <tr>
+            <td><span class="status-warning">No informada</span></td>
+            <td>Incidente previo al 08.01.2025</td>
+            <td><span class="btn-example"><i class="fas fa-recycle"></i>Reprocesar</span></td>
+            <td>Dra. Paz (duplicar o rehacer)</td>
+            <td>Adm. → Dra. Paz</td>
+          </tr>
+          <tr>
+            <td><span class="status-error">Credencial Inválida</span></td>
+            <td>Coberturas no adheridas a receta electrónica (Galeno/OSSOS, Medife/OSPESA, Omint/OSIM)</td>
+            <td>Contactar al profesional para que rehaga la receta de forma manuscrita o por su aplicación personal (RCTA)</td>
+            <td>—</td>
+            <td>Profesional</td>
+          </tr>
+          <tr>
+            <td><span class="status-error">Error dosis/presentación</span></td>
+            <td>Medicamento mal cargado</td>
+            <td>—</td>
+            <td>Profesional / Dra. Paz</td>
+            <td>Profesional / Dra. Paz</td>
+          </tr>
+          <tr>
+            <td><span class="status-error">Error matrícula/especialidad</span></td>
+            <td>Perfil sin configuración</td>
+            <td>—</td>
+            <td>Informática Médica</td>
+            <td>Informática Médica</td>
+          </tr>
+          <tr>
+            <td><span class="status-error">Error financiador</span></td>
+            <td>Plan incorrecto</td>
+            <td>Corregir y <span class="btn-example"><i class="fas fa-recycle"></i>Reprocesar</span></td>
+            <td>Dra. Paz (si persiste)</td>
+            <td>Adm. / Dra. Paz</td>
+          </tr>
+          <tr>
+            <td><span class="status-error">Error número de afiliado</span></td>
+            <td>Afiliado mal tipeado</td>
+            <td>Corregir y <span class="btn-example"><i class="fas fa-recycle"></i>Reprocesar</span></td>
+            <td>—</td>
+            <td>Administración</td>
+          </tr>
+          <tr>
+            <td><span class="status-error">Error de caracteres</span></td>
+            <td>Formato incorrecto</td>
+            <td>Normalizar y <span class="btn-example"><i class="fas fa-recycle"></i>Reprocesar</span></td>
+            <td>—</td>
+            <td>Administración</td>
+          </tr>
+          <tr>
+            <td><span class="status-error">Error de sistema</span></td>
+            <td>Falla técnica</td>
+            <td>—</td>
+            <td>Dra. Paz + Informática Médica</td>
+            <td>Dra. Paz / Informática Médica</td>
+          </tr>
+        </table>
+      </div>
+            <div class="section" id="casos-especiales">
+        <h2>7. Casos especiales</h2>
+        
+        <h3>7.1 Coberturas no adheridas</h3>
+        <ul>
+          <li>Puede salir con un solo código o estado "Credencial Inválida".</li>
+          <li>El profesional debe rehacer la receta de forma manuscrita o por su aplicación personal (RCTA).</li>
+          <li>Estas coberturas presentan subrogación por obra social:</li>
+        </ul>
+        
+        <div class="coverage-examples">
+          <div class="coverage-badge">Galeno / OSSOS</div>
+          <div class="coverage-badge">Medife / OSPESA</div>
+          <div class="coverage-badge">Omint / OSIM</div>
+        </div>
+        
+        <h3>7.2 Paciente particular con obra social</h3>
+        <p>Emitir receta como PARTICULAR desde MARKEY. Si el profesional decide usar cobertura, debe hacerlo desde su sistema externo (RCTA).</p>
+        
+        <h3>7.3 Cambio de cobertura médica</h3>
+        <p>Requiere admisión y transacción desde módulo médico para impactar en Farmacia.</p>
+      </div>
+
+      <div class="section" id="validaciones">
+        <h2>8. Validaciones obligatorias</h2>
+        <ul>
+          <li>Dos códigos de barras y datos completos.</li>
+          <li>Correo correcto (sin rebotes).</li>
+          <li>Reporte actualizado en SharePoint.</li>
+          <li>Estado OK para envío automático.</li>
+        </ul>
+      </div>
+
+      <div class="section" id="reglas-carga">
+        <h2>9. Reglas específicas de carga</h2>
+        <table class="coverage-table">
+          <tr>
+            <th>Cobertura</th>
+            <th>Reglas de carga</th>
+          </tr>
+          <tr>
+            <td><strong>Caja Notarial</strong></td>
+            <td>En el <strong>número de afiliado</strong>, reemplazar letras por números: E→05, V→22, P→16, M→13</td>
+          </tr>
+          <tr>
+            <td><strong>Poder Judicial</strong></td>
+            <td>Dos dígitos después de la barra (agregar 0 si es necesario)</td>
+          </tr>
+          <tr>
+            <td><strong>APSOT</strong></td>
+            <td>Número largo (11 dígitos)</td>
+          </tr>
+          <tr>
+            <td><strong>TV Salud</strong></td>
+            <td>Largo en afiliado, corto en banda magnética</td>
+          </tr>
+          <tr>
+            <td><strong>Banco Provincia</strong></td>
+            <td>7 dígitos</td>
+          </tr>
+          <tr>
+            <td><strong>Jerárquicos Salud</strong></td>
+            <td>Número corto (ej. 42085-00)</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section" id="botones-markey">
+        <h2>10. Botones en MARKEY</h2>
+        <table>
+          <tr>
+            <th>Botón</th>
+            <th>Cuándo usar</th>
+            <th>Observaciones</th>
+          </tr>
+          <tr>
+            <td><span class="btn-example"><i class="fas fa-envelope"></i>Email</span></td>
+            <td>Receta en estado OK</td>
+            <td>Verificar entrega al paciente</td>
+          </tr>
+          <tr>
+            <td><span class="btn-example"><i class="fas fa-recycle"></i>Reprocesar</span></td>
+            <td>Errores administrativos (afiliado, plan)</td>
+            <td>Si cambia cobertura, debe rehacerla el profesional</td>
+          </tr>
+          <tr>
+            <td><span class="btn-example"><i class="fas fa-eye"></i>Visualizar/Imprimir</span></td>
+            <td>Mostrador / no adheridas</td>
+            <td>Confirmar códigos de barras</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section" id="registro-sharepoint">
+        <h2>11. Registro en SharePoint</h2>
+        <ul>
+          <li><strong>Formulario:</strong> Datos del paciente, motivo, estado inicial, acciones.</li>
+          <li><strong>Reporte:</strong> Estado, responsable, fecha/hora, observaciones.</li>
+          <li><strong>Obligatorio:</strong> Registrar TODOS los casos, online o presenciales.</li>
+        </ul>
+        <div class="note">
+          <strong>IMPORTANTE:</strong> Disponemos de un formulario llamado "FORMULARIO DE RECETAS ELECTRONICAS" en el SHARE POINT (CLINICA SAN CAMILO) que impacta en un Reporte ubicado en el mismo sitio. Es de suma importancia completar todos los campos.
+        </div>
+      </div>
+
+      <div class="section" id="plantillas">
+        <h2>12. Plantillas de comunicación</h2>
+        <div class="grid-2">
+          <div class="contact-card">
+            <h4>A. Receta reenviada</h4>
+            <p>Estimado/a {Nombre},</p>
+            <p>Reenviamos su receta electrónica. Verifique el correo y preséntela en farmacia.</p>
+            <p>Saludos cordiales,<br>Clínica San Camilo</p>
+          </div>
+          <div class="contact-card">
+            <h4>B. Rehacer receta</h4>
+            <p>Estimado/a {Nombre},</p>
+            <p>Detectamos un error que requiere emitir una nueva receta. Lo estamos gestionando con el equipo médico. Le avisaremos apenas esté disponible.</p>
+            <p>Gracias por su paciencia,<br>Clínica San Camilo</p>
+          </div>
+          <div class="contact-card">
+            <h4>C. Credencial Inválida</h4>
+            <p>Estimado/a {Nombre},</p>
+            <p>Debido a las características de su cobertura, el profesional deberá rehacer su receta de forma manuscrita o por su sistema personal. Le contactaremos para coordinar la entrega.</p>
+            <p>Saludos cordiales,<br>Clínica San Camilo</p>
+          </div>
+          <div class="contact-card">
+            <h4>D. Error de sistema</h4>
+            <p>Estimado/a {Nombre},</p>
+            <p>Estamos experimentando problemas técnicos con nuestro sistema de recetas electrónicas. Lo estamos resolviendo con prioridad y le avisaremos en cuanto se solucione.</p>
+            <p>Agradecemos su comprensión,<br>Clínica San Camilo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="canales-ayuda">
+        <h2>13. Canales de ayuda</h2>
+        <div class="grid-2">
+          <div class="contact-card">
+            <h4>Grupo de Teams "Recetas"</h4>
+            <p><strong>Informática Médica</strong></p>
+            <p>Para dudas sobre errores de transacción y problemas con profesionales.</p>
+          </div>
+          <div class="contact-card">
+            <h4>Dra. Paz</h4>
+            <p>Para todo lo relacionado con medicación y rehacer recetas.</p>
+          </div>
+          <div class="contact-card">
+            <h4>Mesa de ayuda</h4>
+            <p><strong>Contacto: 670</strong></p>
+            <p>Para problemas de conectividad, acceso a MARKEY, fallas de internet.</p>
+          </div>
+          <div class="contact-card">
+            <h4>Informática Médica</h4>
+            <p><strong>Contacto: Interno 389</strong></p>
+            <p>Para análisis de errores recurrentes del sistema.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="objetivos">
+        <h2>14. Objetivos</h2>
+        <ul>
+          <li>Minimizar errores administrativos, médicos y de sistema.</li>
+          <li>Detectar errores propios del sistema y elevarlos al equipo de Informática Médica.</li>
+          <li>Trabajar en la resolución desde la base para prevenir futuras incidencias.</li>
+        </ul>
+      </div>
+
+      <div class="section" id="checklist">
+        <h2>15. Checklist rápido</h2>
+        <ul class="checklist">
+          <li>Validé identidad, cobertura, plan y nro. afiliado.</li>
+          <li>Verifiqué estado en MARKEY → Admisión - Dispensar Receta.</li>
+          <li>Apliqué acción según matriz de resolución.</li>
+          <li>Reenvié o reprocesé según corresponda.</li>
+          <li>Escalé a Dra. Paz o Informática Médica si era necesario.</li>
+          <li>Registré en SharePoint (Formulario y Reporte).</li>
+          <li>Comuniqué resultado al paciente.</li>
+          <li>Confirmé 2 códigos de barras y datos completos.</li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        Documento interno – Uso exclusivo del personal de Clínica San Camilo.<br>
+        Última actualización: 28/10/2025 · Versión 1.0
+      </div>
+      
+      <div style="text-align: center; margin: 30px 0;">
+        <button class="btn-flujo" id="btn-volver-flujo">Volver al Flujo Interactivo</button>
+      </div>
     </div>
   </div>
 
   <script>
-    // Funcionalidad para el índice colapsable
+    // Datos para el flujo interactivo
+    const flujoData = {
+      "no-recibio": {
+        pregunta: "¿Qué estado muestra en MARKEY?",
+        opciones: [
+          {
+            texto: "OK",
+            descripcion: "La receta está correcta pero no llegó al paciente",
+            accion: {
+              titulo: "Reenviar la receta",
+              pasos: [
+                "Verificar que el correo del paciente es correcto",
+                "Hacer clic en el botón <span class='btn-example'><i class='fas fa-envelope'></i>Email</span>",
+                "Confirmar que el paciente recibió la receta"
+              ],
+              contacto: null
+            },
+            comunicacion: "Estimado/a {Nombre}, reenviamos su receta electrónica. Verifique el correo y preséntela en farmacia. Saludos cordiales, Clínica San Camilo.",
+            necesitaMatriz: false
+          },
+          {
+            texto: "Error específico",
+            descripcion: "MARKEY muestra un error al procesar la receta",
+            accion: {
+              titulo: "Identificar el error específico",
+              pasos: [
+                "Anotar el mensaje de error exacto que muestra MARKEY",
+                "Consultar la matriz de resolución de errores para identificar la acción correspondiente"
+              ],
+              contacto: null
+            },
+            comunicacion: "Estimado/a {Nombre}, detectamos un problema con su receta electrónica. Lo estamos resolviendo y le avisaremos apenas esté disponible. Gracias por su paciencia.",
+            necesitaMatriz: true
+          },
+          {
+            texto: "Credencial Inválida",
+            descripcion: "Para coberturas que subrogan por obra social (Galeno/OSSOS, Medife/OSPESA, Omint/OSIM)",
+            accion: {
+              titulo: "Contactar al profesional para receta manuscrita",
+              pasos: [
+                "Identificar si es cobertura no adherida",
+                "Contactar al profesional para que rehaga la receta de forma manuscrita o por su aplicación personal (RCTA)",
+                "Coordinar la entrega de la receta al paciente"
+              ],
+              contacto: "Profesional"
+            },
+            comunicacion: "Estimado/a {Nombre}, debido a las características de su cobertura, el profesional deberá rehacer su receta de forma manuscrita o por su sistema personal. Le contactaremos para coordinar la entrega. Disculpe las molestias.",
+            necesitaMatriz: false
+          }
+        ]
+      },
+      "datos-incorrectos": {
+        pregunta: "¿Qué dato está mal?",
+        opciones: [
+          {
+            texto: "Número de afiliado",
+            descripcion: "El número de afiliado está incorrecto",
+            accion: {
+              titulo: "Corregir y reprocesar",
+              pasos: [
+                "Verificar el número correcto de afiliado",
+                "Corregir el número en MARKEY",
+                "Hacer clic en <span class='btn-example'><i class='fas fa-recycle'></i>Reprocesar</span>",
+                "Verificar que el estado cambie a OK"
+              ],
+              contacto: null
+            },
+            comunicacion: "Estimado/a {Nombre}, hemos corregido un error en los datos de su receta electrónica. Ya puede descargarla desde su correo. Disculpe las molestias.",
+            necesitaMatriz: false
+          },
+          {
+            texto: "Plan/cobertura",
+            descripcion: "El plan o cobertura está incorrecto",
+            accion: {
+              titulo: "Corregir y reprocesar",
+              pasos: [
+                "Verificar el plan correcto del paciente",
+                "Corregir la cobertura en MARKEY",
+                "Hacer clic en <span class='btn-example'><i class='fas fa-recycle'></i>Reprocesar</span>",
+                "Verificar que el estado cambie a OK"
+              ],
+              contacto: null
+            },
+            comunicacion: "Estimado/a {Nombre}, hemos actualizado los datos de su cobertura en la receta electrónica. Ya puede descargarla desde su correo. Saludos cordiales.",
+            necesitaMatriz: false
+          },
+          {
+            texto: "Credencial Inválida",
+            descripcion: "Para afiliados que no tienen cobertura en farmacia o subrogan por obra social",
+            accion: {
+              titulo: "Contactar al profesional para receta manuscrita",
+              pasos: [
+                "Identificar si es cobertura no adherida (Galeno/OSSOS, Medife/OSPESA, Omint/OSIM)",
+                "Contactar al profesional para que rehaga la receta de forma manuscrita o por su aplicación personal (RCTA)",
+                "Coordinar la entrega de la receta al paciente"
+              ],
+              contacto: "Profesional"
+            },
+            comunicacion: "Estimado/a {Nombre}, debido a las características de su cobertura, el profesional deberá rehacer su receta de forma manuscrita o por su sistema personal. Le contactaremos para coordinar la entrega.",
+            necesitaMatriz: false
+          },
+          {
+            texto: "Medicación/dosis (Indicaciones Fuera de vademécum)",
+            descripcion: "La medicación o dosis prescrita es incorrecta",
+            accion: {
+              titulo: "Contactar a Dra. Paz",
+              pasos: [
+                "Identificar la medicación o dosis incorrecta",
+                "Contactar a Dra. Paz para rehacer la receta",
+                "Seguir las indicaciones del profesional"
+              ],
+              contacto: "Dra. Paz"
+            },
+            comunicacion: "Estimado/a {Nombre}, detectamos un error en la medicación prescrita que requiere emitir una nueva receta. Lo estamos gestionando con el equipo médico. Le avisaremos apenas esté disponible. Gracias por su paciencia.",
+            necesitaMatriz: false
+          }
+        ]
+      },
+      "error-markey": {
+        pregunta: "¿Qué mensaje de error aparece?",
+        opciones: [
+          {
+            texto: "No informada",
+            descripcion: "La receta no se pudo procesar correctamente",
+            accion: {
+              titulo: "Verificar fecha y reprocesar",
+              pasos: [
+                "Verificar si la fecha es anterior al 08.01.2025 (caída del sistema)",
+                "Hacer clic en <span class='btn-example'><i class='fas fa-recycle'></i>Reprocesar</span>",
+                "Si persiste el error, contactar a Dra. Paz"
+              ],
+              contacto: "Dra. Paz (si persiste el error)"
+            },
+            comunicacion: "Estimado/a {Nombre}, estamos solucionando un problema técnico con su receta electrónica. Le avisaremos tan pronto como esté disponible. Disculpe las molestias.",
+            necesitaMatriz: false
+          },
+          {
+            texto: "Error de sistema",
+            descripcion: "Falla general del sistema",
+            accion: {
+              titulo: "Escalar para resolver urgencia",
+              pasos: [
+                "Contactar a Dra. Paz para resolver la urgencia del paciente",
+                "Informar a Informática Médica para que analicen el caso",
+                "Seguir las indicaciones del equipo técnico"
+              ],
+              contacto: "Dra. Paz + Informática Médica"
+            },
+            comunicacion: "Estimado/a {Nombre}, estamos experimentando problemas técnicos con nuestro sistema de recetas electrónicas. Lo estamos resolviendo con prioridad y le avisaremos en cuanto se solucione. Agradecemos su comprensión.",
+            necesitaMatriz: false
+          },
+          {
+            texto: "Error de perfil (IDREFEPS del médico, etc.)",
+            descripcion: "Problema con la configuración del profesional",
+            accion: {
+              titulo: "Contactar a Informática Médica",
+              pasos: [
+                "Anotar el error exacto que muestra MARKEY",
+                "Contactar a Informática Médica para configurar el perfil",
+                "Una vez resuelto, pedir al médico que transaccione nuevamente"
+              ],
+              contacto: "Informática Médica"
+            },
+            comunicacion: "Estimado/a {Nombre}, estamos resolviendo un problema de configuración con la receta electrónica. Lo solucionaremos a la brevedad y le avisaremos cuando esté disponible. Gracias por su paciencia.",
+            necesitaMatriz: false
+          }
+        ]
+      },
+      "problema-farmacia": {
+        pregunta: "¿Qué problema específico tiene la farmacia?",
+        opciones: [
+          {
+            texto: "Falta un código de barras",
+            descripcion: "La receta tiene solo un código de barras en lugar de dos",
+            accion: {
+              titulo: "Verificar formato de la receta",
+              pasos: [
+                "Confirmar que la receta tiene dos códigos de barras",
+                "Si falta algún código, reimprimir la receta",
+                "Verificar que todos los datos del paciente estén completos"
+              ],
+              contacto: null
+            },
+            comunicacion: "Estimado/a {Nombre}, hemos detectado un problema con el formato de su receta electrónica. Le hemos enviado una versión corregida. Si persiste el problema, puede acercarse a la clínica para asistencia personalizada.",
+            necesitaMatriz: false
+          },
+          {
+            texto: "Códigos no legibles",
+            descripcion: "Los códigos de barras no se pueden escanear",
+            accion: {
+              titulo: "Reenviar o reimprimir la receta",
+              pasos: [
+                "Reenviar la receta por correo con el botón <span class='btn-example'><i class='fas fa-envelope'></i>Email</span>",
+                "Si persiste el problema, imprimir una nueva copia",
+                "Verificar la calidad de impresión de los códigos"
+              ],
+              contacto: null
+            },
+            comunicacion: "Estimado/a {Nombre}, hemos detectado un problema con los códigos de su receta electrónica. Le hemos enviado una nueva versión. Si el problema persiste, no dude en contactarnos.",
+            necesitaMatriz: false
+          }
+        ]
+      }
+    };
+
+    // Variables globales para el estado del flujo
+    let pasoActual = 0;
+    let tipoSeleccionado = null;
+    let subopcionSeleccionada = null;
+
+    // Inicialización del flujo interactivo
     document.addEventListener('DOMContentLoaded', function() {
-      const indiceToggle = document.getElementById('indiceToggle');
-      const indiceGrid = document.getElementById('indiceGrid');
+      // Configurar subopciones del paso 0
+      const subopciones = document.querySelectorAll('.flujo-subopcion');
+      subopciones.forEach(opcion => {
+        opcion.addEventListener('click', function() {
+          tipoSeleccionado = this.getAttribute('data-tipo');
+          avanzarAPaso(1);
+          cargarPaso1();
+        });
+      });
+
+      // Configurar índice colapsable
+      configurarIndice('indiceToggleDoc', 'indiceGridDoc');
+
+      // Configurar botones de navegación
+      document.getElementById('btn-volver-paso0').addEventListener('click', function() {
+        avanzarAPaso(0);
+      });
+      
+      document.getElementById('btn-volver-menu').addEventListener('click', function() {
+        avanzarAPaso(0);
+      });
+      
+      document.getElementById('btn-inicio-paso2').addEventListener('click', function() {
+        avanzarAPaso(0);
+      });
+      
+      document.getElementById('btn-volver-paso1').addEventListener('click', function() {
+        avanzarAPaso(1);
+        cargarPaso1();
+      });
+      
+      document.getElementById('btn-inicio-paso3').addEventListener('click', function() {
+        avanzarAPaso(0);
+      });
+      
+      document.getElementById('btn-volver-paso2').addEventListener('click', function() {
+        avanzarAPaso(1);
+        cargarPaso1();
+      });
+      
+      document.getElementById('btn-reiniciar').addEventListener('click', function() {
+        reiniciarFlujo();
+      });
+
+      // Configurar navegación por el índice
+      document.querySelectorAll('.indice-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Configurar botón para ver documentación completa
+      document.getElementById('btn-ver-documentacion').addEventListener('click', function() {
+        document.getElementById('documentacion-completa').style.display = 'block';
+        document.querySelector('.flujo-interactivo').style.display = 'none';
+        window.scrollTo(0, 0);
+      });
+
+      // Configurar botón para volver al flujo
+      document.getElementById('btn-volver-flujo').addEventListener('click', function() {
+        document.getElementById('documentacion-completa').style.display = 'none';
+        document.querySelector('.flujo-interactivo').style.display = 'block';
+        window.scrollTo(0, 0);
+      });
+    });
+
+    // Funciones para manejar el flujo
+    function avanzarAPaso(paso) {
+      // Ocultar paso actual
+      document.querySelectorAll('.flujo-paso').forEach(el => {
+        el.classList.remove('activo');
+      });
+      
+      // Mostrar nuevo paso
+      document.getElementById(`paso-${paso}`).classList.add('activo');
+      
+      // Actualizar estado
+      pasoActual = paso;
+    }
+
+    function reiniciarFlujo() {
+      tipoSeleccionado = null;
+      subopcionSeleccionada = null;
+      avanzarAPaso(0);
+    }
+
+    function configurarIndice(toggleId, gridId) {
+      const indiceToggle = document.getElementById(toggleId);
+      const indiceGrid = document.getElementById(gridId);
       const toggleIcon = indiceToggle.querySelector('.indice-toggle i');
+      
+      // Cargar estado del localStorage
+      const indiceExpandido = localStorage.getItem('indiceExpandido') === 'true';
+      if (indiceExpandido) {
+        indiceGrid.classList.add('expanded');
+        toggleIcon.classList.remove('fa-chevron-down');
+        toggleIcon.classList.add('fa-chevron-up');
+      }
       
       indiceToggle.addEventListener('click', function() {
         indiceGrid.classList.toggle('expanded');
@@ -868,12 +1603,296 @@
         if (indiceGrid.classList.contains('expanded')) {
           toggleIcon.classList.remove('fa-chevron-down');
           toggleIcon.classList.add('fa-chevron-up');
+          localStorage.setItem('indiceExpandido', 'true');
         } else {
           toggleIcon.classList.remove('fa-chevron-up');
           toggleIcon.classList.add('fa-chevron-down');
+          localStorage.setItem('indiceExpandido', 'false');
         }
       });
-    });
+    }
+
+    function cargarPaso1() {
+      const preguntaElement = document.getElementById('pregunta-paso-1');
+      const contenidoElement = document.getElementById('contenido-paso-1');
+      
+      // Configurar pregunta
+      preguntaElement.textContent = flujoData[tipoSeleccionado].pregunta;
+      
+      // Limpiar contenido anterior
+      contenidoElement.innerHTML = '';
+      
+      // Crear subopciones para el paso 1
+      const subopcionesContainer = document.createElement('div');
+      subopcionesContainer.className = 'flujo-subopciones';
+      
+      flujoData[tipoSeleccionado].opciones.forEach((opcion, index) => {
+        const subopcionElement = document.createElement('div');
+        subopcionElement.className = 'flujo-subopcion';
+        subopcionElement.setAttribute('data-indice', index);
+        
+        subopcionElement.innerHTML = `
+          <i class="fas fa-chevron-right"></i>
+          <div>
+            <strong>${opcion.texto}</strong>
+            <p>${opcion.descripcion}</p>
+          </div>
+        `;
+        
+        subopcionElement.addEventListener('click', function() {
+          subopcionSeleccionada = index;
+          avanzarAPaso(2);
+          cargarPaso2();
+        });
+        
+        subopcionesContainer.appendChild(subopcionElement);
+      });
+      
+      contenidoElement.appendChild(subopcionesContainer);
+    }
+
+    function cargarPaso2() {
+      const contenidoElement = document.getElementById('contenido-paso-2');
+      const opcion = flujoData[tipoSeleccionado].opciones[subopcionSeleccionada];
+      
+      // Limpiar contenido anterior
+      contenidoElement.innerHTML = '';
+      
+      // Crear sección de acción
+      const accionElement = document.createElement('div');
+      accionElement.className = 'flujo-accion';
+      
+      let pasosHTML = '';
+      opcion.accion.pasos.forEach(paso => {
+        pasosHTML += `<li>${paso}</li>`;
+      });
+      
+      let contactoHTML = '';
+      if (opcion.accion.contacto) {
+        contactoHTML = `
+          <div class="note">
+            <strong>Contactar a:</strong> ${opcion.accion.contacto}
+          </div>
+        `;
+      }
+      
+      // Si necesita matriz, agregarla
+      let matrizHTML = '';
+      if (opcion.necesitaMatriz) {
+        matrizHTML = generarMatrizResolucion();
+      }
+      
+      accionElement.innerHTML = `
+        <h3>${opcion.accion.titulo}</h3>
+        <ol class="steps">
+          ${pasosHTML}
+        </ol>
+        ${matrizHTML}
+        ${contactoHTML}
+      `;
+      
+      contenidoElement.appendChild(accionElement);
+      
+      // Agregar validación
+      const validacionElement = document.createElement('div');
+      validacionElement.className = 'flujo-subopciones';
+      validacionElement.style.marginTop = '20px';
+      
+      validacionElement.innerHTML = `
+        <div class="flujo-pregunta">¿Después de hacer esto, qué pasó?</div>
+        <div class="flujo-subopcion" style="margin-bottom: 10px;">
+          <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+          <div>
+            <strong>Se resolvió</strong>
+            <p>El problema se solucionó correctamente</p>
+          </div>
+        </div>
+        <div class="flujo-subopcion">
+          <i class="fas fa-exclamation-circle" style="color: var(--danger-color);"></i>
+          <div>
+            <strong>Persiste el error</strong>
+            <p>El problema continúa después de la acción</p>
+          </div>
+        </div>
+      `;
+      
+      // Configurar eventos para las opciones de validación
+      const opcionesValidacion = validacionElement.querySelectorAll('.flujo-subopcion');
+      opcionesValidacion[0].addEventListener('click', function() {
+        avanzarAPaso(3);
+        cargarPaso3();
+      });
+      
+      opcionesValidacion[1].addEventListener('click', function() {
+        // Si persiste el error, mostrar instrucción de escalar a Dra. Paz
+        const escalarElement = document.createElement('div');
+        escalarElement.className = 'note';
+        escalarElement.style.marginTop = '20px';
+        escalarElement.innerHTML = `
+          <h4>Escalar a Dra. Paz</h4>
+          <p>Como el problema persiste, debes contactar inmediatamente a <strong>Dra. Paz</strong> para resolver la urgencia del paciente.</p>
+          <p>Después de contactar a Dra. Paz, continúa con la comunicación al paciente.</p>
+        `;
+        
+        contenidoElement.appendChild(escalarElement);
+        
+        // Cargar directamente la comunicación después de escalar
+        setTimeout(() => {
+          cargarPaso3();
+          avanzarAPaso(3);
+        }, 100);
+      });
+      
+      contenidoElement.appendChild(validacionElement);
+    }
+
+    function cargarPaso3() {
+      const contenidoElement = document.getElementById('contenido-paso-3');
+      const opcion = flujoData[tipoSeleccionado].opciones[subopcionSeleccionada];
+      
+      // Limpiar contenido anterior
+      contenidoElement.innerHTML = '';
+      
+      // Crear sección de comunicación
+      const comunicacionElement = document.createElement('div');
+      comunicacionElement.className = 'flujo-comunicacion';
+      
+      comunicacionElement.innerHTML = `
+        <h3>Plantilla de comunicación</h3>
+        <p>Utiliza esta plantilla para informar al paciente:</p>
+        <div class="note">
+          ${opcion.comunicacion}
+        </div>
+      `;
+      
+      contenidoElement.appendChild(comunicacionElement);
+      
+      // Agregar verificación
+      const verificacionElement = document.createElement('div');
+      verificacionElement.style.marginTop = '20px';
+      
+      verificacionElement.innerHTML = `
+        <div class="flujo-pregunta">¿Confirmaste que el paciente recibió la receta?</div>
+        <div class="flujo-subopciones">
+          <div class="flujo-subopcion">
+            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+            <div>
+              <strong>Sí, el paciente confirmó recepción</strong>
+              <p>La receta llegó correctamente al paciente</p>
+            </div>
+          </div>
+          <div class="flujo-subopcion">
+            <i class="fas fa-clock" style="color: var(--warning-color);"></i>
+            <div>
+              <strong>Enviado, esperando confirmación</strong>
+              <p>La receta fue enviada pero no hay confirmación aún</p>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      contenidoElement.appendChild(verificacionElement);
+      
+      // Agregar checklist final
+      const checklistElement = document.createElement('div');
+      checklistElement.className = 'flujo-checklist';
+      
+      checklistElement.innerHTML = `
+        <h4>Checklist de completado:</h4>
+        <ul class="checklist">
+          <li>Error identificado correctamente</li>
+          <li>Acción realizada según procedimiento</li>
+          <li>Paciente notificado adecuadamente</li>
+          <li>Resultado verificado</li>
+        </ul>
+        
+        <div class="note">
+          <strong>IMPORTANTE:</strong> No olvides registrar la gestión en SharePoint utilizando el Formulario de Recetas Electrónicas.
+        </div>
+      `;
+      
+      contenidoElement.appendChild(checklistElement);
+    }
+
+    function generarMatrizResolucion() {
+      return `
+        <div style="margin: 20px 0;">
+          <h4>Matriz de Resolución de Errores</h4>
+          <table>
+            <tr>
+              <th>Estado / Error</th>
+              <th>Causa probable</th>
+              <th>Acción administrativa</th>
+              <th>Acción clínica / Informática Médica</th>
+              <th>Responsable</th>
+            </tr>
+            <tr>
+              <td><span class="status-ok">OK</span></td>
+              <td>Receta válida</td>
+              <td><span class='btn-example'><i class='fas fa-envelope'></i>Reenviar por Email</span></td>
+              <td>—</td>
+              <td>Administración</td>
+            </tr>
+            <tr>
+              <td><span class="status-warning">No informada</span></td>
+              <td>Incidente previo al 08.01.2025</td>
+              <td><span class='btn-example'><i class='fas fa-recycle'></i>Reprocesar</span></td>
+              <td>Dra. Paz (duplicar o rehacer)</td>
+              <td>Adm. → Dra. Paz</td>
+            </tr>
+            <tr>
+              <td><span class="status-error">Credencial Inválida</span></td>
+              <td>Coberturas no adheridas a receta electrónica (Galeno/OSSOS, Medife/OSPESA, Omint/OSIM)</td>
+              <td>Contactar al profesional para que rehaga la receta de forma manuscrita o por su aplicación personal (RCTA)</td>
+              <td>—</td>
+              <td>Profesional</td>
+            </tr>
+            <tr>
+              <td><span class="status-error">Error dosis/presentación</span></td>
+              <td>Medicamento mal cargado</td>
+              <td>—</td>
+              <td>Profesional / Dra. Paz</td>
+              <td>Profesional / Dra. Paz</td>
+            </tr>
+            <tr>
+              <td><span class="status-error">Error matrícula/especialidad</span></td>
+              <td>Perfil sin configuración</td>
+              <td>—</td>
+              <td>Informática Médica</td>
+              <td>Informática Médica</td>
+            </tr>
+            <tr>
+              <td><span class="status-error">Error financiador</span></td>
+              <td>Plan incorrecto</td>
+              <td>Corregir y <span class='btn-example'><i class='fas fa-recycle'></i>Reprocesar</span></td>
+              <td>Dra. Paz (si persiste)</td>
+              <td>Adm. / Dra. Paz</td>
+            </tr>
+            <tr>
+              <td><span class="status-error">Error número de afiliado</span></td>
+              <td>Afiliado mal tipeado</td>
+              <td>Corregir y <span class='btn-example'><i class='fas fa-recycle'></i>Reprocesar</span></td>
+              <td>—</td>
+              <td>Administración</td>
+            </tr>
+            <tr>
+              <td><span class="status-error">Error de caracteres</span></td>
+              <td>Formato incorrecto</td>
+              <td>Normalizar y <span class='btn-example'><i class='fas fa-recycle'></i>Reprocesar</span></td>
+              <td>—</td>
+              <td>Administración</td>
+            </tr>
+            <tr>
+              <td><span class="status-error">Error de sistema</span></td>
+              <td>Falla técnica</td>
+              <td>—</td>
+              <td>Dra. Paz + Informática Médica</td>
+              <td>Dra. Paz / Informática Médica</td>
+            </tr>
+          </table>
+        </div>
+      `;
+    }
   </script>
 </body>
 </html>
